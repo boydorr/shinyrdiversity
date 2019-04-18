@@ -1,5 +1,4 @@
 ui = navbarPage("Using navbar",
-                # plot_diversity(),
 
                 tabPanel("What is q?", mainPanel(verbatimTextOutput("whatisq"))),
 
@@ -18,7 +17,7 @@ ui = navbarPage("Using navbar",
                            sidebarPanel(
                              radioButtons("level",
                                           label = "Level",
-                                          c("Subcommunity", "Metacommunity")),
+                                          c("Subcommunity", "Metacommunity", "Both")),
                              radioButtons("measure",
                                           label = "Measure",
                                           c("Normalised alpha",

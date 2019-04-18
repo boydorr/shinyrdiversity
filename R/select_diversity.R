@@ -3,51 +3,47 @@
 #' @export
 #'
 select_diversity <- function(input) {
-    if(input$level == "Subcommunity") {
-      if(input$measure == "Normalised alpha") {
-        calc <- "norm_sub_alpha"
-      } else if(input$measure == "Raw alpha") {
-        calc <- "raw_sub_alpha"
-      }else if(input$measure == "Normalised beta") {
-        calc <- "norm_sub_beta"
-      }else if(input$measure == "Raw beta") {
-        calc <- "raw_sub_beta"
-      }else if(input$measure == "Normalised rho") {
-        calc <- "norm_sub_rho"
-      }else if(input$measure == "Raw rho") {
-        calc <- "raw_sub_rho"
-      } else if(input$measure == "Gamma") {
-        calc <- "sub_gamma"
-      }
-    }else if(input$level == "Metacommunity") {
-      if(input$measure == "Normalised alpha") {
-        calc <- "norm_meta_alpha"
-      } else if(input$measure == "Raw alpha") {
-        calc <- "raw_meta_alpha"
-      }else if(input$measure == "Normalised beta") {
-        calc <- "norm_meta_beta"
-      }else if(input$measure == "Raw beta") {
-        calc <- "raw_meta_beta"
-      }else if(input$measure == "Normalised rho") {
-        calc <- "norm_meta_rho"
-      }else if(input$measure == "Raw rho") {
-        calc <- "raw_meta_rho"
-      } else if(input$measure == "Gamma") {
-        calc <- "meta_gamma"
-      }
-    }
-    dat <- BCI[1:10,1:50]
-    dat <- t(dat)
-    meta <- rdiversity::metacommunity(dat)
-    qs <-  c(.1, .25, .5, .75, 1, 2, 10, 20, 50, 100, Inf)
-    # qs <- c(0:2, Inf)
-    res <- get(calc)(meta, qs)
-    res$partition_name <- as.factor(res$partition_name)
 
-    ggplot() + theme_bw() +
-      geom_line(aes(x = q,
-                    y = diversity,
-                    group = partition_name,
-                    colour = partition_name), res) +
-      labs(colour = "Partition")
+  if(input$measure == "Normalised alpha") {
+    calc <- "norm_alpha"
+  } else if(input$measure == "Raw alpha") {
+    calc <- "raw_alpha"
+  }else if(input$measure == "Normalised beta") {
+    calc <- "norm_beta"
+  }else if(input$measure == "Raw beta") {
+    calc <- "raw_beta"
+  }else if(input$measure == "Normalised rho") {
+    calc <- "norm_rho"
+  }else if(input$measure == "Raw rho") {
+    calc <- "raw_rho"
+  } else if(input$measure == "Gamma") {
+    calc <- "raw_gamma"
+  }
+
+
+  dat <- BCI[1:10,1:50]
+  dat <- t(dat)
+  meta <- rdiversity::metacommunity(dat)
+  qs <-  c(0,.1, .25, .5, .75, 1, 2, 10, 20, 50, 100, Inf)
+  # qs <- c(0:2, Inf)
+  sp_res <- get(calc)(meta)
+
+  if(input$level == "Subcommunity") res <- rdiversity::subdiv(sp_res, qs)
+  if(input$level == "Metacommunity") res <- rdiversity::metadiv(sp_res, qs)
+  if(input$level == "Both") {
+    sub_res <- rdiversity::subdiv(sp_res, qs)
+    meta_res <- rdiversity::metadiv(sp_res, qs)
+    res <- rdiversity::rdiv(list(sub_res, meta_res))
+  }
+
+  res$partition_name <- as.factor(res$partition_name)
+
+  # ggplot() + theme_bw() + labs(colour = "Partition") +
+  #   geom_line(aes(x = q,
+  #                 y = diversity,
+  #                 group = partition_name,
+  #                 colour = partition_name), res)
+  ggplot(res)
+
+
 }

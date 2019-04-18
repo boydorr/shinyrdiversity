@@ -11,7 +11,8 @@ Description: What the package does (one paragraph).
 Imports:
     rdiversity,
     ggplot2,
-    vegan
+    vegan,
+    ggrdiversity
 License: What license it uses
 Encoding: UTF-8
 LazyData: true

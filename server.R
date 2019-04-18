@@ -7,4 +7,3 @@ server = function(input,output){
 
   output$whatisq = renderPrint(whatisq())
 }
-
