@@ -44,7 +44,6 @@ select_diversity <- function(input) {
     # qs <- c(0:2, Inf)
     res <- get(calc)(meta, qs)
 
-    # ggplot(res)
     ggplot() + geom_line(aes(x = q,
                              y = diversity,
                              group = partition_name,
