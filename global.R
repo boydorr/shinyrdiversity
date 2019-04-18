@@ -1,4 +1,5 @@
 library(shiny)
 library(shinyrdiversity)
-data(BCI)
+library(vegan)
+data(BCI, package = "vegan")
 source("./R/select_diversity.R")
