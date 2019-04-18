@@ -3,9 +3,6 @@
 #' @export
 #'
 select_diversity <- function(input) {
-
-  renderPlot({
-
     if(input$level == "Subcommunity") {
       if(input$measure == "Normalised alpha") {
         calc <- "norm_sub_alpha"
@@ -53,5 +50,4 @@ select_diversity <- function(input) {
                     group = partition_name,
                     colour = partition_name), res) +
       labs(colour = "Partition")
-  })
 }
