@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555592032701.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "353D66E2",
+    "lastKnownWriteTime" : 1555590878,
+    "last_content_update" : 1555590878,
+    "path" : "~/GitHub/shinyrdiversity/R/select_diversity.R",
+    "project_path" : "R/select_diversity.R",
+    "properties" : {
+        "cursorPosition" : "56,0",
+        "scrollLine" : "31"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

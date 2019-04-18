@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555592009279.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3358777894",
+    "id" : "1A01DF8C",
+    "lastKnownWriteTime" : 1555592134,
+    "last_content_update" : 1555592134987,
+    "path" : "~/GitHub/shinyrdiversity/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+        "cursorPosition" : "5,16",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
