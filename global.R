@@ -1,4 +1,4 @@
 library(shiny)
 library(shinyrdiversity)
 data(BCI)
-source("../R/select_diversity")
+source("./R/select_diversity.R")
