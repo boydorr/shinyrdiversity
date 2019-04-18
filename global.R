@@ -1,0 +1,7 @@
+library(shiny)
+library(reshape2)
+library(vegan)
+library(ggplot2)
+library(rdiversity)
+library(ggrdiversity)
+data(BCI)
