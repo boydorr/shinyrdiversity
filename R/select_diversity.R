@@ -41,11 +41,11 @@ select_diversity <- function(input) {
     }
     dat <- BCI[1:10,1:50]
     dat <- t(dat)
-    meta <- metacommunity(dat)
+    meta <- rdiversity::metacommunity(dat)
     # res <- get(calc)(meta, 0:2)
     qs <-  c(.1, .25, .5, .75, 1, 2, 10, 20, 50, 100, Inf)
     # qs <- c(0:2, Inf)
-    res <- get(calc)(meta, qs)
+    res <- rdiversity::get(calc)(meta, qs)
     res$partition_name <- as.factor(res$partition_name)
 
     ggplot() + theme_bw() +
