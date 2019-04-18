@@ -1,5 +1,7 @@
 library(shiny)
 library(shinyrdiversity)
 library(vegan)
+library(rdiversity)
+library(ggplot2)
 data(BCI, package = "vegan")
 source("./R/select_diversity.R")
