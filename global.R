@@ -12,7 +12,7 @@ source("R/whatisq.R")
 ##datasets
 # Create datasets -------
 
-tree.pop <- rowSums(BCI)
+tree.pop <- rowSums(t(BCI))
 species.names <- names(tree.pop)
 num.sp <- length(tree.pop)
 num.trees <- sum(tree.pop)
