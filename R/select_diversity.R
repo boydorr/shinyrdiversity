@@ -1,5 +1,7 @@
 #' select_diversity
 #'
+#' @export
+#'
 select_diversity <- function(input) {
 
   renderPlot({
