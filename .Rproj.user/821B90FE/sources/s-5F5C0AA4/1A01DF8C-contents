@@ -1,7 +1,4 @@
 library(shiny)
 library(reshape2)
 library(shinyrdiversity)
-library(vegan)
-library(rdiversity)
-library(ggplot2)
 data(BCI)
