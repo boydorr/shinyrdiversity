@@ -4,6 +4,8 @@
 #'
 select_diversity <- function(input) {
 
+  renderPlot({
+
     if(input$level == "Subcommunity") {
       if(input$measure == "Normalised alpha") {
         calc <- "norm_sub_alpha"
@@ -44,11 +46,13 @@ select_diversity <- function(input) {
     qs <-  c(.1, .25, .5, .75, 1, 2, 10, 20, 50, 100, Inf)
     # qs <- c(0:2, Inf)
     res <- get(calc)(meta, qs)
+    res$partition_name <- as.factor(res$partition_name)
 
-    ggplot() + geom_line(aes(x = q,
-                             y = diversity,
-                             group = partition_name,
-                             colour = partition_name), res)
-
-
+    ggplot() + theme_bw() +
+      geom_line(aes(x = q,
+                    y = diversity,
+                    group = partition_name,
+                    colour = partition_name), res) +
+      labs(colour = "Partition")
+  })
 }
