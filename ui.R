@@ -1,16 +1,4 @@
 ui = navbarPage("Using navbar",
-
-                tabPanel("What is q?", mainPanel(verbatimTextOutput("whatisq"))),
-
-                tabPanel("What is diversity?",
-                          sidebarLayout(position="left",
-                                         sidebarPanel(
-                                           radioButtons("divtype",
-                                                         label = "divtype",
-                                                         c("Alpha", "Beta", "Gamma"))),
-                         mainPanel(htmlOutput("whatisdiv")))
-                         ),
-
                 tabPanel("Plot",
                          # each tab can have it's own layout
                          sidebarLayout(
@@ -29,7 +17,14 @@ ui = navbarPage("Using navbar",
                                             "Gamma"))
                            ),
                            mainPanel(plotOutput("line"))
-                         )
-                )
-
+                         )),
+                tabPanel("What is diversity?",
+                         sidebarLayout(position="left",
+                                       sidebarPanel(
+                                         radioButtons("divtype",
+                                                      label = "divtype",
+                                                      c("Alpha", "Beta", "Gamma"))),
+                                       mainPanel(htmlOutput("whatisdiv")))
+                ),
+                tabPanel("What is q?", mainPanel(verbatimTextOutput("whatisq")))
 )

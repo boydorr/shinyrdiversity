@@ -26,5 +26,5 @@ whatisdiv <- function(input)
     }
 
 
-  return(divdesc)
+  return(HTML(divdesc))
 }
