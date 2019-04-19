@@ -3,10 +3,10 @@ ui =  navbarPage("Using rdiversity",
                  tabPanel("Custom",
                           sidebarLayout(
                             sidebarPanel(
-                              radioButtons("level",
+                              radioButtons("customLevel",
                                            label = "Level",
                                            c("Subcommunity", "Metacommunity", "Both")),
-                              radioButtons("measure",
+                              radioButtons("customMeasure",
                                            label = "Measure",
                                            c("Normalised alpha",
                                              "Raw alpha",
@@ -19,7 +19,7 @@ ui =  navbarPage("Using rdiversity",
                             mainPanel(
                               plotOutput("customPlot"),
                               rHandsontableOutput('toydata'),
-                              actionButton("runButton","Refresh plot")
+                              actionButton("customButton","Refresh plot")
                             )
                           )),
 
@@ -28,14 +28,14 @@ ui =  navbarPage("Using rdiversity",
                           sidebarLayout(
                             sidebarPanel(
                               helpText("Select a dataset."),
-                              selectInput("dat", "Choose a population:",
+                              selectInput("plotDat", "Choose a population:",
                                           choices = c("toy",
                                                       "BCI"),
                                           selected = "toy"),
-                              radioButtons("level",
+                              radioButtons("plotLevel",
                                            label = "Level",
                                            c("Subcommunity", "Metacommunity", "Both")),
-                              radioButtons("measure",
+                              radioButtons("plotMeasure",
                                            label = "Measure",
                                            c("Normalised alpha",
                                              "Raw alpha",

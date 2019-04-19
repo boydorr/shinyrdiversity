@@ -9,23 +9,24 @@ server = function(input,output,session){
     rhandsontable(bigtoy)
   })
 
-  observeEvent(input$runButton, {
+  observeEvent(input$customButton, {
     values$editted <- hot_to_r(input$toydata)
   })
 
   output$customPlot =  renderPlot({
     dat <- values$editted
-    select_diversity(dat, input$measure, input$level)
+    select_diversity(dat, input$customMeasure, input$customLevel)
   })
 
 
   # Tab 2 - Plot
   output$linePlot =  renderPlot({
-    dat <- switch(input$dat,
+    dat <- switch(input$plotDat,
                   "BCI" = t(BCI),
                   "toy" = toy)
-    select_diversity(dat, input$measure, input$level)
+    select_diversity(dat, input$plotMeasure, input$plotLevel)
   })
+
 
   # Tab 3 - What is diversity?
   output$whatisdiv = renderPrint(whatisdiv(input))

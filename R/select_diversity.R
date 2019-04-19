@@ -37,12 +37,11 @@ select_diversity <- function(dat,
 
   res$partition_name <- as.factor(res$partition_name)
 
-  ggplot() + theme_bw() + labs(colour = "Partition") +
-    geom_line(aes(x = q,
-                  y = diversity,
-                  group = partition_name,
-                  colour = partition_name), res)
-  # ggplot(res)
-
+  # ggplot() + theme_bw() + labs(colour = "Partition") +
+  #   geom_line(aes(x = q,
+  #                 y = diversity,
+  #                 group = partition_name,
+  #                 colour = partition_name), res)
+  ggplot(res)
 
 }
