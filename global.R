@@ -1,4 +1,5 @@
 library(shiny)
+library(rhandsontable)
 # library(shinyrdiversity)
 library(vegan)
 library(rdiversity)
@@ -8,6 +9,19 @@ data(BCI, package = "vegan")
 source("R/select_diversity.R")
 source("R/whatisdiv.R")
 source("R/whatisq.R")
+
+DF = data.frame(num = 1:10, qty = rep(0,10), total = 1:10,
+                stringsAsFactors = FALSE)
+
+toy <- cbind.data.frame(A = c(1,1), B = c(2,0), C = c(3,1))
+row.names(toy) <- c("cows", "sheep")
+
+bigtoy <- cbind.data.frame(A = c(1,1,0,0,0),
+                           B = c(2,0,0,0,0),
+                           C = c(3,1,0,0,0),
+                           D = c(0,0,0,0,0),
+                           E = c(0,0,0,0,0))
+row.names(bigtoy) <- c("cows", "sheep", "goats", "ducks", "monkeys")
 
 ##datasets
 # Create datasets -------
